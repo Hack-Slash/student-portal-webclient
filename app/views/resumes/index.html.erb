@@ -1,1 +1,6 @@
-index page - shows logged in student resume
+<% @resumes.each do |resume| %>
+  <p><%= resume['id'] %></p>
+  <p><%= resume['first_name'] %></p>
+  <p><%= resume['last_name'] %></p>
+  <hr>
+<% end %>
