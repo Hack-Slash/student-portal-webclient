@@ -1,0 +1,43 @@
+<h3>Welcome to the Resume Show Page!</h3>
+
+<%= form_tag "/resumes/#{@student.resume}", method: :post do %>
+
+	<p><%= @student.student_id %></p>
+
+	<p><%= @student.first_name %>></p>
+
+	<p><%= @student.last_name %></p>
+
+	<p><%= @student.email %></p>
+
+	<p><%= @student.phone_number %></p>
+
+	<p><%= student.short_bio %></p>
+
+	<p><%= @student.linkedin_url %></p>
+
+	<p><%= @student.twitter_handle %></p>
+
+	<p><%= @student.personal_web_url %></p>
+
+	<p><%= @student.online_resume_url %></p>
+
+	<p><%= @student.github_url %></p>
+
+	<p><%= @student.photo %></p>
+
+	<% end %>
+
+
+
+<!--   first_name: params[:first_name] || @student.first_name, 
+  last_name: params[:last_name] || @student.last_name, 
+  email: params[:email] || @student.email,
+  phone_number: params[:phone_number] || @student.phone_number,
+  short_bio: params[:short_bio] || @student.short_bio,
+  linkedin_url: params[:linkedin_url] || @student.linkedin_url,
+  twitter_handle: params[:twitter_handle] || @student.twitter_handle,
+  personal_web_url: params[:personal_web_url] || @student.personal_web_url,
+  online_resume_url: params[:online_resume_url] || @student.online_resume_url,
+  github_url: params[:github_url] || @student.github_url,
+  photo: params[:photo] || @student.photo -->
