@@ -1,2 +1,6 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<% @resumes.each do |resume| %>
+  <p><%= resume['id'] %></p>
+  <p><%= resume['first_name'] %></p>
+  <p><%= resume['last_name'] %></p>
+  <hr>
+<% end %>

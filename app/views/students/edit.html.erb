@@ -1,41 +1,41 @@
 <h3>Welcome to the Resume Edit Page!</h3>
 
-<%= form_tag "/resumes/#{@student.resume}", method: :patch do %>
+<%= form_tag "/resumes", method: :patch do %>
       <p><label name="id"> Id: </label></p>
-      <p><input type="text" name="student_id" value="<%= @student.student_id %>"></p>
+      <p><input type="text" name="student_id" value="<%= @student['id'] %>"></p>
 
       <p><label name="first_name"> First Name: </label></p>
-      <p><input type="text" name="first_name" value="<%= @student.first_name %>"></p>
+      <p><input type="text" name="first_name" value="<%= @student['first_name'] %>"></p>
 
       <p><label name="last_name"> Last Name: </label></p>
-      <p><input type="text" name="last_name" value="<%= @student.last_name %>"></p>
+      <p><input type="text" name="last_name" value="<%= @student['last_name'] %>"></p>
 
       <p><label name="email"> Email: </label></p>
-      <p><input type="text" name="email" value="<%= @student.email %>"></p>   
+      <p><input type="text" name="email" value="<%= @student['email'] %>"></p>   
 
       <p><label name="phone_number"> Phone Number: </label></p>
-      <p><input type="text" name="phone_number" value="<%= @student.phone_number %>"></p>
+      <p><input type="text" name="phone_number" value="<%= @student['phone_number'] %>"></p>
 
       <p><label name="short_bio"> Short Bio: </label></p>
-      <p><input type="text" name="short_bio" value="<%= @student.short_bio %>"></p> 
+      <p><input type="text" name="short_bio" value="<%= @student['short_bio'] %>"></p> 
 
       <p><label name="linkedin_url"> LinkedIn URL: </label></p>
-      <p><input type="text" name="linkedin_url" value="<%= @student.linkedin_url %>"></p> 
+      <p><input type="text" name="linkedin_url" value="<%= @student['linkedin_url'] %>"></p> 
 
       <p><label name="twitter_handle"> Twitter Handle: </label></p>
-      <p><input type="text" name="twitter_handle" value="<%= @student.twitter_handle %>"></p>   
+      <p><input type="text" name="twitter_handle" value="<%= @student['twitter_handle'] %>"></p>   
 
       <p><label name="personal_web_url"> Personal Web Url: </label></p>
-      <p><input type="text" name="personal_web_url" value="<%= @student.personal_web_url %>"></p>
+      <p><input type="text" name="personal_web_url" value="<%= @student['personal_web_url'] %>"></p>
 
       <p><label name="online_resume_url"> Online Resume Url: </label></p>
-      <p><input type="text" name="online_resume_url" value="<%= @student.online_resume_url %>"></p> 
+      <p><input type="text" name="online_resume_url" value="<%= @student['online_resume_url'] %>"></p> 
 
       <p><label name="github_url"> Github Url: </label></p>
-      <p><input type="text" name="github_url" value="<%= @student.github_url %>"></p> 
+      <p><input type="text" name="github_url" value="<%= @student['github_url'] %>"></p> 
 
       <p><label name="photo"> Photo: </label></p>
-      <p><input type="text" name="photo" value="<%= @student.photo %>"></p>     
+      <p><input type="text" name="photo" value="<%= @student['photo'] %>"></p>     
 
       <p><input type="submit" value="Update Resume"></p>
 <% end %>

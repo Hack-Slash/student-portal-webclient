@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+students = Unirest.get("http://localhost:3000/api/v1/students").body
+
+students.each do |student|
+  User.create(
+    student_id: student['id'],
+    student_email: student['email'],
+    password: "bob",
+    password_confirmation: "bob"
+  )
+end
