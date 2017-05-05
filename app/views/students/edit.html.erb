@@ -1,6 +1,6 @@
-<h3>Welcome to the Resume Edit Page!</h3>
+<h3>Welcome to the Student Edit Page!</h3>
 
-<%= form_tag "/resumes", method: :patch do %>
+<%= form_tag "/students", method: :patch do %>
       <p><label name="id"> Id: </label></p>
       <p><input type="text" name="student_id" value="<%= @student['id'] %>"></p>
 
@@ -36,6 +36,25 @@
 
       <p><label name="photo"> Photo: </label></p>
       <p><input type="text" name="photo" value="<%= @student['photo'] %>"></p>     
+
+      <%= @student['experience'].each do |experience| %>
+            <p><label name="start_date"> Start Date: </label></p>
+            <p><input type="text" name="start_date" value="<%= experience['start_date'] %>"></p> 
+
+            <p><label name="end_date"> End Date: </label></p>
+            <p><input type="text" name="end_date" value="<%= experience['end_date'] %>"></p> 
+
+            <p><label name="degree"> Degree: </label></p>
+            <p><input type="text" name="degree" value="<%= experience['degree'] %>"></p> 
+
+            <p><label name="university"> Degree: </label></p>
+            <p><input type="text" name="university" value="<%= experience['university'] %>"></p> 
+
+
+            <p><label name="details"> Details: </label></p>
+            <p><input type="text" name="details" value="<%= experience['details'] %>"></p> 
+
+      <% end %>
 
       <p><input type="submit" value="Update Resume"></p>
 <% end %>
