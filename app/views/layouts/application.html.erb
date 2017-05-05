@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <p><a href="/logout">Log out</a></p>
+    <% else %>
+      <p><a href="/login">Log in</a></p>
+    <% end %>
     <% flash.each do |name, message| %>
       <%= message %>
     <% end %>
