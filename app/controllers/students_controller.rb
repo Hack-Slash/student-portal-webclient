@@ -1,49 +1,232 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
-  # def index
-  	# @resume = Unirest.get("http://localhost:3000/api/v1/students/#{current_user.student.id}").body
-  	# render 'index.html.erb'
-  # end
+  
 
   def show
-  	#@student = Unirest.get("http://localhost:3000/api/v1/students").body.first
-  	@student = Unirest.get("http://localhost:3000/api/v1/students/#{current_user.student_id}").body
-  	render 'show.html.erb'
+    @student = Unirest.get("http://localhost:3000/api/v1/students/#{current_user.student_id}").body
+    render 'show.html.erb'
   end
 
   def edit
-  	@student = Unirest.get("http://localhost:3000/api/v1/students/#{current_user.student_id}").body
-  	render 'edit.html.erb'
+    @student = Unirest.get("http://localhost:3000/api/v1/students/#{current_user.student_id}").body
+    render 'edit.html.erb'
   end
 
   def update
-  	@student = Unirest.patch("http://localhost:3000/api/v1/students").body.first
-  	@resume.update(
-	  first_name: params[:first_name] || @student['first_name'], 
-      last_name: params[:last_name] || @student['last_name'], 
-      email: params[:email] || @student['email'],
-      phone_number: params[:phone_number] || @student['phone_number'],
-      short_bio: params[:short_bio] || @student['short_bio'],
-      linkedin_url: params[:linkedin_url] || @student['linkedin_url'],
-      twitter_handle: params[:twitter_handle] || @student['twitter_handle'],
-	  personal_web_url: params[:personal_web_url] || @student['personal_web_url'],
-	  online_resume_url: params[:online_resume_url] || @student['online_resume_url'],
-	  github_url: params[:github_url] || @student['github_url'],
-	  photo: params[:photo] || @student['photo']
-      )
-  	redirect_to "/resumes"
+  	student = Unirest.patch("http://localhost:3000/api/v1/students/#{current_user.student_id}",
+      parameters: {
+        first_name:,
+        last_name:,
+        email:,
+        phone_number:,
+        short_bio:,
+        linkedin_url:,
+        twitter_handle:,
+        personal_web_url:, 
+        online_resume_url:,
+        github_url: ,
+        photo:,
+        experience:[
+          {
+            id: 
+            start_date: 
+            end_date: 
+            job_title: 
+            company_name: 
+            details: 
+            student_id: 
+            created_at: 
+            updated_at: 
+          },
+          {
+            id: 
+            start_date: 
+            end_date: 
+            job_title: 
+            company_name: 
+            details: 
+            student_id: 
+            created_at: 
+            updated_at: 
+          }
+
+        ],
+        education: [
+          {
+            id: 
+            start_date:
+            end_date: 
+            degree: 
+            university: 
+            details: 
+            student_id: 
+            created_at: 
+            updated_at: 
+          },
+          {
+            id: 
+            start_date:
+            end_date: 
+            degree: 
+            university: 
+            details: 
+            student_id: 
+            created_at: 
+            updated_at: 
+          }
+        ],
+        capstones: [
+          {
+          id: 
+          name: 
+          description: 
+          url: 
+          student_id: 
+          created_at: 
+          updated_at: 
+          }
+        ],
+        skills: [
+          {
+            id: 
+            skill_name: 
+            created_at: 
+            updated_at: 
+          },
+          {
+            id: 
+            skill_name: 
+            created_at: 
+            updated_at: 
+          },
+          {
+            id: 
+            skill_name: 
+            created_at: 
+            updated_at: 
+          },
+          {
+            id: 
+            skill_name: 
+            created_at: 
+            updated_at: 
+          },
+          {
+            id: 
+            skill_name: 
+            created_at: 
+            updated_at: 
+          },
+        ]
+
+      }
+
+    ).body
   end
 end
 
- # 	json.id student.id
- #  json.first_name student.first_name
- #  json.last_name student.last_name
- #  json.email student.email
- #  json.phone_number student.phone_number
- #  json.short_bio student.short_bio
- #  json.linkedin_url student.linkedin_url
- #  json.twitter_handle student.twitter_handle
- #  json.personal_web_url student.personal_web_url
- #  json.online_resume_url student.online_resume_url
- #  json.github_url student.github_url
- #  json.photo student.photo
+ {
+"id": 1,
+"first_name": 
+"last_name": 
+"email": 
+"phone_number": 
+"short_bio": 
+"linkedin_url": 
+"twitter_handle":
+"personal_web_url": 
+"online_resume_url":
+"github_url": 
+"photo":
+"experience": [
+{
+"id": 
+"start_date": 
+"end_date": 
+"job_title": 
+"company_name": 
+"details": 
+"student_id": 
+"created_at": 
+"updated_at": 
+{
+"id": 11,
+"start_date": "2017-05-03",
+"end_date": "CURRENT",
+"job_title": "Global Consultant",
+"company_name": "Glover, Schiller and Marquardt",
+"details": "whiteboard wireless e-tailers",
+"student_id": 1,
+"created_at": "2017-05-05T00:05:10.871Z",
+"updated_at": "2017-05-05T00:05:10.871Z"
+}
+],
+"education": [
+{
+"id": 1,
+"start_date": "2016-09-19",
+"end_date": "2015-02-15",
+"degree": "Associate Degree in Biomedical Science",
+"university": " Technical College",
+"details": "Automated web-enabled concept",
+"student_id": 1,
+"created_at": "2017-05-03T04:33:44.905Z",
+"updated_at": "2017-05-03T04:33:44.905Z"
+},
+{
+"id": 11,
+"start_date": "2005-12-08",
+"end_date": "2014-10-14",
+"degree": "Associate Degree in Criminology",
+"university": " Technical College",
+"details": "Multi-channelled intermediate internet solution",
+"student_id": 1,
+"created_at": "2017-05-05T00:05:10.974Z",
+"updated_at": "2017-05-05T00:05:10.974Z"
+}
+],
+"capstones": [
+{
+"id": 1,
+"name": "Doctor Star-Lord Brain",
+"description": "Quia kale chips synth. Esse officiis corrupti eos molestiae irony. Asymmetrical accusamus aut sartorial nisi excepturi assumenda ut.",
+"url": "http://abshire.info/marques.rempel",
+"screenshot": "https://cdn.weasyl.com/static/media/42/e3/5d/42e35d65d75564e3af26b417b3f04272459216d62a1fa108f2713df54ab9aff1.png",
+"student_id": 1,
+"created_at": "2017-05-05T00:05:11.052Z",
+"updated_at": "2017-05-05T00:05:11.052Z"
+}
+],
+"skills": [
+{
+"id": 38,
+"skill_name": "Stealth",
+"created_at": "2017-05-05T00:05:11.180Z",
+"updated_at": "2017-05-05T00:05:11.180Z"
+},
+{
+"id": 50,
+"skill_name": "Energy Armor",
+"created_at": "2017-05-05T00:05:11.198Z",
+"updated_at": "2017-05-05T00:05:11.198Z"
+},
+{
+"id": 65,
+"skill_name": "Energy Beams",
+"created_at": "2017-05-05T00:05:11.218Z",
+"updated_at": "2017-05-05T00:05:11.218Z"
+},
+{
+"id": 77,
+"skill_name": "Biokinesis",
+"created_at": "2017-05-05T00:05:11.236Z",
+"updated_at": "2017-05-05T00:05:11.236Z"
+},
+{
+"id": 95,
+"skill_name": "Illusions",
+"created_at": "2017-05-05T00:05:11.263Z",
+"updated_at": "2017-05-05T00:05:11.263Z"
+}
+]
+}
